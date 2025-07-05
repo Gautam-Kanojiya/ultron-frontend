@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Twitter, Linkedin, Instagram, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
+  const [email,setEmail] = useState('');4
+  const [status,setStatus] = useState(null);
+
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top:0,
+      behaviour:'smooth',
+    });
+  };
+
+  const handleSubscribe = async() =>{
+    if(!email){
+      setStatus('please enter a valid email');
+      return ;
+    }
+
+    try{
+      const res = await fetch('https://your-api-url.com/api/subscribe',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email})
+      } ) ;
+
+      if(res.ok){
+        setStatus('subscription successful');
+        setEmail('');
+      }
+      else{
+        setStatus('subscription failed, please try again');
+      }
+    }
+    catch(err){
+        setStatus('an error occurred');
+      }
+  };
+
   return (
     <footer className="w-full bg-[#f9f7f8] text-[#1e1b18] pt-10 pb-6 px-6 md:px-20">
       {/* Top Section */}
@@ -12,6 +48,7 @@ export default function Footer() {
           <h4 className="font-bold text-lg mb-3">GET IN TOUCH</h4>
           <div className="space-y-3">
             <a href="#" className="hover:text-[#1DA1F2]">Contact Link1</a>
+            <br />
             <a href="#" className="hover:text-[#1DA1F2]">Contact Link2</a>
           </div>
         </div>
@@ -68,21 +105,19 @@ export default function Footer() {
               type="email"
               placeholder="Enter email ID"
               className="px-3 py-2 rounded-md border border-gray-300 text-sm w-full sm:w-auto"
+              onChange={(e)=> setEmail(e.target.value)} 
             />
-            <button className="bg-[#d8315b] hover:bg-[#ff2056] text-white px-4 py-2 rounded-md text-sm">
+            <button className="bg-[#d8315b] hover:bg-[#ff2056] text-white px-4 py-2 rounded-md text-sm" onClick={handleSubscribe}>
               Subscribe
             </button>
           </div>
         </div>
 
         {/* Back to Top */}
-        <div className="flex justify-start md:justify-end">
-          <a
-            href="#top"
-            className="inline-flex items-center px-3 py-2 rounded-xl text-white bg-gradient-to-r from-blue-300 to-indigo-600 shadow hover:from-indigo-600 hover:to-blue-300"
-          >
+        <div className="flex justify-end md:justify-end md:mt-8">
+          <button onClick={scrollToTop} className="inline-flex items-center px-3 py-2 rounded-xl text-white bg-gradient-to-r from-blue-300 to-indigo-600 shadow hover:from-indigo-600 hover:to-blue-300">
             <ArrowUp className="w-5 h-5" />
-          </a>
+          </button>
         </div>
       </div>
     </footer>
