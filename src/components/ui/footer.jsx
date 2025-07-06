@@ -47,9 +47,7 @@ export default function Footer() {
         <div>
           <h4 className="font-bold text-lg mb-3">GET IN TOUCH</h4>
           <div className="space-y-3">
-            <a href="#" className="hover:text-[#1DA1F2]">Contact Link1</a>
-            <br />
-            <a href="#" className="hover:text-[#1DA1F2]">Contact Link2</a>
+            <a href="#" className="hover:text-[#1DA1F2]">Contact@logoxjunction.com</a>
           </div>
         </div>
 
