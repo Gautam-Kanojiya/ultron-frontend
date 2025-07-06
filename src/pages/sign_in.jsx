@@ -9,7 +9,7 @@ export default function SignInPage() {
           LogiXJunction 
         </h2> */}
 
-        <img src="/LOGO.png"   className='h-20 w-20' />
+        <img src="/LOGO_LxJ2.png"   className='h-20 w-25' />
 
         <h1 className="text-4xl sm:text-5xl font-bold text-[#1e1b18] 
         leading-tight mb-6">
