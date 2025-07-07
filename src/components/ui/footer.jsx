@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Twitter, Linkedin, Instagram, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
-  const [email,setEmail] = useState('');4
+  const [email,setEmail] = useState('');
   const [status,setStatus] = useState(null);
 
   const scrollToTop = () =>{
     window.scrollTo({
       top:0,
-      behaviour:'smooth',
+      behavior:'smooth',
     });
   };
 
@@ -33,7 +33,7 @@ export default function Footer() {
         setStatus('subscription failed, please try again');
       }
     }
-    catch(err){
+    catch{
         setStatus('an error occurred');
       }
   };
@@ -47,7 +47,7 @@ export default function Footer() {
         <div>
           <h4 className="font-bold text-lg mb-3">GET IN TOUCH</h4>
           <div className="space-y-3">
-            <a href="#" className="hover:text-[#1DA1F2]">Contact@logoxjunction.com</a>
+            <a href="mailto:contact@logixjunction.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#1DA1F2]"> contact@logixjunction.com </a>
           </div>
         </div>
 
@@ -70,13 +70,13 @@ export default function Footer() {
         {/* Our Story */}
         <div>
           <h4 className="font-bold text-lg mb-3">OUR STORY</h4>
-          <a href="#" className="hover:text-[#1DA1F2]">Blog Link</a>
+          <a href="about-us" className="hover:text-[#1DA1F2]">About Us</a>
         </div>
 
         {/* Insights */}
         <div>
           <h4 className="font-bold text-lg mb-3">INSIGHTS</h4>
-          <a href="#" className="hover:text-[#1DA1F2]">Careers</a>
+          <a href="/join-us" className="hover:text-[#1DA1F2]">Careers</a>
         </div>
       </div>
 
@@ -87,11 +87,11 @@ export default function Footer() {
         <div className="text-sm text-gray-600">
           <p>©2025 LxJ</p>
           <div className="flex flex-wrap gap-2 mt-2">
-            <a href="/privacy-policy" className="hover:text-[#1e1b18]">Privacy Policy</a>
+            <a href="#" className="hover:text-[#1e1b18]">Privacy Policy</a>
             <span>·</span>
-            <a href="/privacy-policy" className="hover:text-[#1e1b18]">Terms</a>
+            <a href="#" className="hover:text-[#1e1b18]">Terms</a>
             <span>·</span>
-            <a href="/privacy-policy" className="hover:text-[#1e1b18]">Cookies</a>
+            <a href="# " className="hover:text-[#1e1b18]">Cookies</a>
           </div>
         </div>
 
@@ -109,6 +109,9 @@ export default function Footer() {
               Subscribe
             </button>
           </div>
+          {status && (
+            <div className="mt-2 text-sm text-red-600">{status}</div>
+          )}
         </div>
 
         {/* Back to Top */}
