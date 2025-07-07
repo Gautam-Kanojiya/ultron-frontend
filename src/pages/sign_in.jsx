@@ -5,11 +5,8 @@ export default function SignInPage() {
     <div className="min-h-screen bg-[#fffaff] flex flex-col md:flex-row items-center justify-center px-6 py-12">
       {/* Left Side - Company Motto */}
       <div className="w-full md:w-1/2 flex flex-col justify-center mb-12 md:mb-0 md:pr-10">
-        {/* <h2 className="text-sm tracking-widest text-[#0a2463] font-semibold mb-4 uppercase">
-          LogiXJunction 
-        </h2> */}
 
-        <img src="/LOGO_LxJ2.png"   className='h-20 w-25' />
+        <img src="/LOGO_LxJ2.png"   className='h-20 w-24' />
 
         <h1 className="text-4xl sm:text-5xl font-bold text-[#1e1b18] 
         leading-tight mb-6">
