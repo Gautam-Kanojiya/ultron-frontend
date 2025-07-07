@@ -10,7 +10,7 @@ export default function Navbar() {
 
       {/* Left Section: Logo + Nav Links */}
       <div className="flex items-center space-x-6">
-        <Link to={"/"} ><span className="text-[#372aac] font-bold text-xl tracking-wide">LxJ</span></Link>
+        <Link to={"/"} ><span className="text-[#372aac] font-bold text-xl tracking-wide"><img src="/LOGO.png" alt="LxJ" /></span></Link>
         <div className="hidden md:flex space-x-6 text-[#57534d] font-medium">
           <a href="/" className="hover:text-[#8bb5f4] transition">Home</a>
           <a href="/our-story" className="hover:text-[#8ec5ff] transition">Our Story</a>
