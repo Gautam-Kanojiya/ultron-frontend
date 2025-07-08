@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Upload, Package, MapPin, Calendar, Truck, Scale, Ruler } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const ShipmentRegistration = () => {
   const [formData, setFormData] = useState({
@@ -60,10 +62,26 @@ const ShipmentRegistration = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+    
+    try{
+      const formPayLoad = {
+        ...formData,
+        materialType : formData.materialType === 'Others'? formData.customMaterialType : formData.materialType,
+      }
+
+      const response = await axios.post('http://localhost:5000/api/get-transporters',formPayLoad);
+
+      const suitableTransporters = response.data;
+
+      navigate('/available-transporters',{state:{transporters: suitableTransporters}});
+    } catch (error){
+      console.log("error while fetching transporters: ",error);
+      alert ("something went wrong while submitting the shipment data!")
+    }
   };
 
   return (
