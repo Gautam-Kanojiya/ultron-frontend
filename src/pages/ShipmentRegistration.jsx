@@ -77,7 +77,11 @@ const ShipmentRegistration = () => {
 
       const suitableTransporters = response.data;
 
-      navigate('/available-transporters',{state:{transporters: suitableTransporters}});
+      if(suitableTransporters && suitableTransporters.transporters?.length>0){
+        navigate('/available-transporters',{state:{transporters: suitableTransporters}});
+      }else{
+        alert("No suitable transporters found for the given shipment details. Please check your inputs and try again.");
+      }      
     } catch (error){
       console.log("error while fetching transporters: ",error);
       alert ("something went wrong while submitting the shipment data!")
