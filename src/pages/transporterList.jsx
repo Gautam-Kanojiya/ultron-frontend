@@ -5,13 +5,23 @@ import TransporterCard from '../components/cards/TransporterCard';
 
 
 const AvailableTransporters = () => {
-  
-  const location = useLocation();
-  const transporters = location.state?.transporters || [];
-  
+   
   const [activeTab, setActiveTab] = useState('dedicated');
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('');
+
+  const location = useLocation();
+   const transporters = location.state?.transporters || [];
+
+  if(!location.state || !Array.isArray(transporters) || transporters.length === 0 ){
+    return (
+      <div className="p-10 text-center text-red-600 text-lg font-semibold min-h-screen bg-gradient-to-br from-zinc-50 via-sky-100 to-white">
+        ❌ No shipment data found. Please register a shipment first.
+      </div>
+    );
+  }
+  
+ 
 
   const filteredTransporters = transporters.filter((t) => {
     const matchesSearch =
@@ -74,9 +84,19 @@ const AvailableTransporters = () => {
         {/* Transporters Grid */}
         {activeTab === 'dedicated' ? (
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filteredTransporters.map((t) => (
+            {filteredTransporters.length === 0 ?(
+              <div className="text-center text-gray-500 mt-24 text-xl font-medium">
+                No transporters found matching your criteria.
+              </div>
+            ) : (
+              <div className="text-center text-gray-500 mt-24 text-xl font-medium">
+                {filteredTransporters.map((t) => (
               <TransporterCard key={t.id} transporter={t}/>
             ))}
+              </div>
+            ) }           
+            
+            
           </div>
         ) : (
           <div className="text-center text-gray-500 mt-24 text-xl font-medium">
