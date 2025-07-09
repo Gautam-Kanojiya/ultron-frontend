@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function TransporterDashboard() {
   const transporterData = {
@@ -17,6 +18,7 @@ export default function TransporterDashboard() {
       'We are a leading logistics company providing all-India service with a modern fleet and a focus on reliable delivery.',
     image: '', // Empty string will fallback to default avatar
   };
+  const navigate = useNavigate();
 
   const fallbackImage = 'https://www.w3schools.com/howto/img_avatar.png';
   const profileImage = transporterData.image || fallbackImage;
@@ -29,7 +31,7 @@ export default function TransporterDashboard() {
             <div className="text-3xl font-bold text-gray-800">Transporter Profile</div>
             <div>
 
-                <button className="border-2 border-blue-600 text-black-700 font-semibold px-6 py-2 rounded-lg shadow-sm hover:shadow-lg hover:text-blue-700 hover:bg-blue-50 transform  transition-all duration-200">
+                <button className="border-2 border-blue-600 text-black-700 font-semibold px-6 py-2 rounded-lg shadow-sm hover:shadow-lg hover:text-blue-700 hover:bg-blue-50 transform  transition-all duration-200" onClick={()=>{navigate("/consignment")}}>
                     Consignments
                 </button>
                 <button className="border-2 border-blue-600 text-black-700 font-semibold px-6 py-2 ml-4 rounded-lg shadow-sm hover:shadow-lg hover:text-blue-700 hover:bg-blue-50 transform  transition-all duration-200">
