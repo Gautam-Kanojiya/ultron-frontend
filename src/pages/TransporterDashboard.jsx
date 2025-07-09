@@ -31,7 +31,7 @@ export default function TransporterDashboard() {
             <div className="text-3xl font-bold text-gray-800">Transporter Profile</div>
             <div>
 
-                <button className="border-2 border-blue-600 text-black-700 font-semibold px-6 py-2 rounded-lg shadow-sm hover:shadow-lg hover:text-blue-700 hover:bg-blue-50 transform  transition-all duration-200">
+                <button className="border-2 border-blue-600 text-black-700 font-semibold px-6 py-2 rounded-lg shadow-sm hover:shadow-lg hover:text-blue-700 hover:bg-blue-50 transform  transition-all duration-200" onClick={()=> navigate('/consignment')}>
                     Consignments
                 </button>
                 <button className="border-2 border-blue-600 text-black-700 font-semibold px-6 py-2 ml-4 rounded-lg shadow-sm hover:shadow-lg hover:text-blue-700 hover:bg-blue-50 transform  transition-all duration-200" onClick={()=> navigate('/shipments')}>
