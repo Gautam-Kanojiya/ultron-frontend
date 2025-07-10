@@ -9,6 +9,7 @@ import Consignment from './pages/dashboard/consignment'; // Assuming you have th
 // import AboutPage from './pages/aboutUs';
 // import CareersPage from './pages/Join_us';
 import ClientDashboard from './pages/ClientDashboard';
+import AvailableTransporters from './pages/AvailableTransporters'; // Assuming you have this component
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         {/* <Route path="/about-us" element={<AboutPage />} /> */}
         {/* <Route path="/careers" element={<CareersPage />} /> */}
         <Route path="/client-dashboard" element={<ClientDashboard />} />
+        <Route path="/available-transporter" element={<AvailableTransporters />} />
       </Routes>
     </Router>
   );
