@@ -9,7 +9,7 @@ import Consignment from './pages/dashboard/consignment'; // Assuming you have th
 // import AboutPage from './pages/aboutUs';
 // import CareersPage from './pages/Join_us';
 import ClientDashboard from './pages/ClientDashboard';
-import AvailableTransporters from './pages/AvailableTransporters'; // Assuming you have this component
+import AvailableTransporters from './pages/transporterList'; // Assuming you have this component
 
 function App() {
   return (
