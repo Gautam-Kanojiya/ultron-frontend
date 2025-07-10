@@ -10,6 +10,9 @@ import Consignment from './pages/dashboard/consignment'; // Assuming you have th
 // import CareersPage from './pages/Join_us';
 import ClientDashboard from './pages/ClientDashboard';
 import AvailableTransporters from './pages/transporterList'; // Assuming you have this component
+import ShipmentRegistration from './pages/ShipmentRegistration';
+// import AboutPage from './pages/aboutUs';
+// import CareersPage from './pages/Join_us';
 
 function App() {
   return (
@@ -26,6 +29,7 @@ function App() {
         {/* <Route path="/careers" element={<CareersPage />} /> */}
         <Route path="/client-dashboard" element={<ClientDashboard />} />
         <Route path="/available-transporter" element={<AvailableTransporters />} />
+        <Route path="/shipment-registration" element={<ShipmentRegistration />} />
       </Routes>
     </Router>
   );
