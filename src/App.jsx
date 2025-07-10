@@ -13,6 +13,7 @@ import AvailableTransporters from './pages/transporterList'; // Assuming you hav
 import ShipmentRegistration from './pages/ShipmentRegistration';
 // import AboutPage from './pages/aboutUs';
 // import CareersPage from './pages/Join_us';
+import SignInPage from './pages/sign_in'; // Assuming you have this component
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/client-dashboard" element={<ClientDashboard />} />
         <Route path="/available-transporter" element={<AvailableTransporters />} />
         <Route path="/shipment-registration" element={<ShipmentRegistration />} />
+        <Route path="/sign-in" element={<SignInPage />} />
       </Routes>
     </Router>
   );
