@@ -7,7 +7,8 @@ import ShipperRegistration from './pages/signup/ShipperRegistration';
 import Shipments from './pages/dashboard/Shipments'; // Assuming you have this component
 import Consignment from './pages/dashboard/consignment'; // Assuming you have this component
 // import AboutPage from './pages/aboutUs';
-import CareersPage from './pages/Join_us';
+// import CareersPage from './pages/Join_us';
+import ClientDashboard from './pages/ClientDashboard';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <Route path="/consignment" element={<Consignment />} />
         {/* Add more routes as needed */}
         {/* <Route path="/about-us" element={<AboutPage />} /> */}
-        <Route path="/careers" element={<CareersPage />} />
+        {/* <Route path="/careers" element={<CareersPage />} /> */}
+        <Route path="/client-dashboard" element={<ClientDashboard />} />
       </Routes>
     </Router>
   );
