@@ -24,6 +24,8 @@ import {
   PackageX,
   Timer
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 
 const ClientDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -198,16 +200,18 @@ const ClientDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#fffaff' }}>
+    <div className="min-h-screen mt-14" style={{ backgroundColor: '#fffaff' }}>
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold ml-2" style={{ color: '#0a2463' }}>DASHBOARD</h1>     
           {/* Request Shipment Button */}
-          <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white transition-all duration-200 hover:shadow-lg hover:scale-105" style={{ backgroundColor: '#d8315B' }}>
-            <Send className="w-5 h-5" />
-            Request Shipment
-          </button>
+          <Link to="/shipment-registration">
+            <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white transition-all duration-200 hover:shadow-lg hover:scale-105" style={{ backgroundColor: '#d8315B' }}>
+              <Send className="w-5 h-5" />
+              Request Shipment
+            </button>
+          </Link>
         </div>
 
         <div className="flex gap-8">

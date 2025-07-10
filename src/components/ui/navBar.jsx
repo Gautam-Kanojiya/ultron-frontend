@@ -1,5 +1,6 @@
 import React, { useState }  from 'react';
 import { Menu, X ,Search } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Ensure you have react-router-dom installed
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,10 +25,10 @@ export default function Navbar() {
       <div className="hidden md:flex items-center space-x-4">
 
         {/* Sign In + Get Started */}
-        <button className="text-[#57534d] hover:text-[#d8315b] transition font-semibold">Sign In</button>
-        <button className="bg-[#d8315b] hover:bg-[#b92549] text-white px-4 py-2 rounded-full text-sm font-semibold shadow">
+        <a href="/sign-in"><button className="text-[#57534d] hover:text-[#d8315b] transition font-semibold">Sign In</button></a>
+        <a href="/sign-up"><button className="bg-[#d8315b] hover:bg-[#b92549] text-white px-4 py-2 rounded-full text-sm font-semibold shadow">
           Get Started
-        </button>
+        </button></a>
 
         {/* Search Bar */}
         {/* <div className="flex items-center border border-gray-300 rounded-full px-3 py-1 bg-white ml-2">
@@ -60,10 +61,10 @@ export default function Navbar() {
 
   {/* Auth Buttons */}
   <div className="flex flex-col items-center space-y-3">
-    <button className="text-[#1e1b18] hover:text-[#3e92cc] font-semibold">Sign In</button>
-    <button className="bg-[#d8315b] hover:bg-[#b92549] text-white px-4 py-2 rounded-full text-sm font-semibold shadow">
+    <a href="/sign-in"><button className="text-[#1e1b18] hover:text-[#3e92cc] font-semibold">Sign In</button></a>
+    <a href="/shipper-registration"><button className="bg-[#d8315b] hover:bg-[#b92549] text-white px-4 py-2 rounded-full text-sm font-semibold shadow">
       Get Started
-    </button>
+    </button></a>
   </div>
 
   <hr className="my-4" />

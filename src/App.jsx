@@ -36,7 +36,6 @@ function App() {
         <Route path="/shipment-registration" element={<ShipmentRegistration />} />
         <Route path="/sign-in" element={<SignInPage />} />
       </Routes>
-      <Footer/>
     </Router>
   );
 }
