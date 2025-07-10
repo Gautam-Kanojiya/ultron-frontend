@@ -14,10 +14,13 @@ import ShipmentRegistration from './pages/ShipmentRegistration';
 // import AboutPage from './pages/aboutUs';
 // import CareersPage from './pages/Join_us';
 import SignInPage from './pages/sign_in'; // Assuming you have this component
+import Footer from './components/ui/footer';  
+import Navbar from './components/ui/navBar';
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/transporter-dashboard" element={<TransporterDashboard />} />
@@ -33,6 +36,7 @@ function App() {
         <Route path="/shipment-registration" element={<ShipmentRegistration />} />
         <Route path="/sign-in" element={<SignInPage />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }
