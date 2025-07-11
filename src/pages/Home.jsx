@@ -12,6 +12,14 @@ const Home = () => {
         >
           Go to Transporter Dashboard
         </Link>
+
+        <br /><br />
+        <Link
+          to="/client-dashboard"
+          className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700"
+        >
+          Go to Client Dashboard
+        </Link>
       </div>
     </div>
   );
