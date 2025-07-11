@@ -18,9 +18,7 @@ const CollapsibleSection = ({ title, items, onAdd, onEdit, onDelete }) => {
               e.stopPropagation();
               onAdd();
             }}
-            className={`bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-transform duration-300 ${
-              isOpen ? 'rotate-45' : 'rotate-0'
-            }`}
+            className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition"
             title={`Add ${title.split(' ')[1] || 'Item'}`}
           >
             <Plus size={18} />
