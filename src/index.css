@@ -3,6 +3,15 @@
 
 @tailwind utilities;
 
+@theme {
+  --color-lxj-primary: #0a2463;
+--color-lxj-accent: #3e92cc;
+--color-lxj-softWhite: #fffaff;
+--color-lxj-alert: #d8315b;
+--color-lxj-dark: #1e1b18;
+--color-lxj-softYellow: #EEE8A5;
+
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
