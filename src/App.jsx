@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TransporterDashboard from './pages/TransporterDashboard';
-
 import Home from './pages/Home'; // You can create this as a landing page
 import CarrierRegistration from './pages/signup/CarrierRegistration'; 
 import ShipperRegistration from './pages/signup/ShipperRegistration'; 
@@ -25,13 +24,13 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/transporter-dashboard" element={<TransporterDashboard />} />
         <Route path="/carrier-registration" element={<CarrierRegistration />} />
         <Route path="/shipper-registration" element={<ShipperRegistration />} />
         <Route path="/shipments" element={<Shipments />} />
         <Route path="/consignment" element={<Consignment />} />
-        {/* Add more routes as needed */}
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/join-us" element={<Careers />} />
@@ -41,6 +40,7 @@ function App() {
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/landing" element={<LandingPage />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }

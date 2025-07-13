@@ -40,13 +40,13 @@ export default function LandingPage() {
       </div>
 
       {/* Right Image */}
-      <div className="relative">
+      {/* <div className="relative">
         <img
           src="images/mobile-ui.png"
           alt="Mobile UI"
           className="w-full max-w-xs mx-auto drop-shadow-2xl rounded-xl"
         />
-      </div>
+      </div> */}
     </div>
   </div>
 </section>
