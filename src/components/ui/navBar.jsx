@@ -62,7 +62,7 @@ export default function Navbar() {
   {/* Auth Buttons */}
   <div className="flex flex-col items-center space-y-3">
     <a href="/sign-in"><button className="text-[#1e1b18] hover:text-[#3e92cc] font-semibold">Sign In</button></a>
-    <a href="/shipper-registration"><button className="bg-[#d8315b] hover:bg-[#b92549] text-white px-4 py-2 rounded-full text-sm font-semibold shadow">
+    <a href="/sign-up"><button className="bg-[#d8315b] hover:bg-[#b92549] text-white px-4 py-2 rounded-full text-sm font-semibold shadow">
       Get Started
     </button></a>
   </div>

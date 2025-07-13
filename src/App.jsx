@@ -16,6 +16,7 @@ import ShipmentRegistration from './pages/ShipmentRegistration';
 import SignInPage from './pages/sign_in'; // Assuming you have this component
 import Footer from './components/ui/footer';  
 import Navbar from './components/ui/navBar';
+import SignUpPage from './pages/signup/sign_up';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/available-transporter" element={<AvailableTransporters />} />
         <Route path="/shipment-registration" element={<ShipmentRegistration />} />
         <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
       </Routes>
     </Router>
   );
