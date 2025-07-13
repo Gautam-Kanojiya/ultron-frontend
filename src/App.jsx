@@ -18,6 +18,7 @@ import Navbar from './components/ui/navBar';
 import LandingPage from './pages/LandingPage';
 import AboutUs from './pages/aboutUs';
 import Careers from './pages/career';
+import SignUpPage from './pages/signup/sign_up';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/shipment-registration" element={<ShipmentRegistration />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/landing" element={<LandingPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
       </Routes>
       <Footer/>
     </Router>
