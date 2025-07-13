@@ -16,6 +16,9 @@ import ShipmentRegistration from './pages/ShipmentRegistration';
 import SignInPage from './pages/sign_in'; // Assuming you have this component
 import Footer from './components/ui/footer';  
 import Navbar from './components/ui/navBar';
+import LandingPage from './pages/LandingPage';
+import AboutUs from './pages/aboutUs';
+import Careers from './pages/career';
 
 function App() {
   return (
@@ -29,12 +32,14 @@ function App() {
         <Route path="/shipments" element={<Shipments />} />
         <Route path="/consignment" element={<Consignment />} />
         {/* Add more routes as needed */}
-        {/* <Route path="/about-us" element={<AboutPage />} /> */}
-        {/* <Route path="/careers" element={<CareersPage />} /> */}
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/join-us" element={<Careers />} />
         <Route path="/client-dashboard" element={<ClientDashboard />} />
         <Route path="/available-transporter" element={<AvailableTransporters />} />
         <Route path="/shipment-registration" element={<ShipmentRegistration />} />
         <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/landing" element={<LandingPage />} />
       </Routes>
     </Router>
   );

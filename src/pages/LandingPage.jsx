@@ -1,9 +1,61 @@
-import React from 'react'
+import KeyFeatures from "./landingPageComponents/keyFeatures.jsx";
+import News from "./landingPageComponents/news.jsx";
+import CaseStudyShowcase from "./landingPageComponents/caseStudy";
+import Testimonials from "./landingPageComponents/testimonials";
+import ContactCTASection from "./landingPageComponents/contact";
 
-const LandingPage = () => {
+export default function LandingPage() {
   return (
-    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, facere repudiandae dignissimos quasi tempore voluptas. Cupiditate nam id non illum, perferendis maiores, excepturi aliquid, quas facilis eaque at sed. Voluptatem at in sed minima quod nobis architecto laudantium accusantium nostrum, eum facilis nemo non. Laudantium, dolores cupiditate. Ut, quaerat. Eos sunt consectetur aut dolore voluptas veritatis, eaque cumque quam neque, ipsum sapiente animi perspiciatis quasi, natus quas quibusdam itaque illum? Quibusdam, iure distinctio optio consectetur magni quis minima possimus eveniet nobis quos sed? Dolor ducimus laudantium quae dignissimos perferendis mollitia saepe veritatis adipisci, dolore dolores itaque earum harum vitae ratione libero natus reiciendis tempore officia ipsum consequuntur quas, minus possimus. Magni nesciunt officiis, totam quis nulla molestias reprehenderit fuga. Voluptatum minima, ad unde ut a odit illo fugiat cum maiores non similique eaque deserunt, distinctio eius veritatis optio aperiam atque velit nam accusantium facere beatae mollitia ipsam architecto. Dolor perferendis aliquam illum obcaecati eaque quasi quas fugit, facilis reiciendis ratione cupiditate neque adipisci corrupti placeat tenetur sint nam consequatur, provident quisquam molestias porro! Dolorum corporis illum facere odio fugiat aspernatur ullam porro consequuntur, sapiente eius rem, ducimus, earum inventore deserunt ex ipsum dolorem id delectus? Quod modi suscipit necessitatibus dolorum ipsum, itaque dolorem, repellat velit minus est nobis quos ullam! Voluptatum debitis optio beatae numquam fuga, eveniet fugit ullam laboriosam quaerat, culpa aliquid! Sit asperiores accusamus, ut sapiente dolorum, minus labore eveniet quod amet numquam nesciunt assumenda quam deleniti tempore optio accusantium non earum! Dolor alias dicta, ipsum deleniti officia omnis fugiat unde dolore, quidem quaerat explicabo! Natus eius explicabo nemo excepturi cum dignissimos. Accusamus quasi necessitatibus ipsum, vitae quis rem placeat incidunt impedit corrupti nesciunt tempore aliquam facere consequuntur mollitia quaerat provident, fugiat hic distinctio quibusdam consequatur. Ad non dicta asperiores quisquam totam fugiat vero perspiciatis quos aliquam qui dolore eos aperiam tempora, assumenda consequuntur delectus illum sapiente tenetur, excepturi cupiditate nam! Nam, praesentium. Aut, animi. Maxime iure modi praesentium dignissimos officiis labore aliquam facere atque provident fuga iusto nostrum quasi eos quidem dolorem possimus numquam voluptate, distinctio nihil tempora consequuntur? Voluptate fugit quod repudiandae nihil aspernatur, commodi aperiam, vero iure nam ullam ipsum explicabo officiis! Odit culpa similique at, ad voluptate, eveniet rerum praesentium a maxime officia error aliquid sint quam ipsum consectetur illo voluptatibus! Neque expedita nostrum veritatis consequatur culpa nemo officia, eaque quae doloremque labore dolores distinctio. Quisquam nobis ab ipsum veniam minus laboriosam obcaecati facilis optio expedita! Cupiditate deserunt eaque nisi quidem pariatur. Ipsam porro quia sequi labore perferendis libero ducimus, ipsa tempora soluta fugiat iure illum eaque eos! Aspernatur architecto, cumque quas ipsa in atque consequuntur esse ipsum error excepturi nostrum minima, deserunt blanditiis dolor minus dignissimos. Totam reprehenderit velit corrupti neque dolorem dolorum corporis, placeat eum? Suscipit a pariatur mollitia debitis soluta laboriosam officiis, minus maxime incidunt architecto deserunt est voluptatum magnam expedita iure consequuntur in ipsum error. Adipisci officia minima voluptas ullam blanditiis quisquam ipsum, vero ducimus magnam perspiciatis explicabo laudantium, veniam ea, eius illum quia deserunt cumque? Id veritatis, voluptate sed delectus vitae quia ipsa? Labore dicta vel mollitia illo, ipsa odio ab vero numquam fugit quos assumenda officiis dolorum beatae quam magni dolore iste obcaecati repellat maiores distinctio nihil. Saepe repudiandae doloribus soluta dolorum quasi maiores vero ex excepturi consequatur molestias sed deleniti dignissimos eum illum sint porro aliquam accusantium odio facilis, tempore pariatur sapiente iste deserunt a. Hic illum modi natus ab totam iste sequi dicta provident. Architecto voluptatibus eaque veritatis, perspiciatis tempora iusto deserunt ab vitae voluptates, unde repellendus nihil ipsum voluptatem reprehenderit est fugit temporibus odio facilis. Architecto, amet iure. Sequi, soluta eligendi porro neque voluptate odio et, aspernatur facere a quasi voluptatum aliquid hic esse eius eos sunt qui ipsum minus culpa at fugiat nisi ad dolore. Repellat cumque velit praesentium veritatis est, nemo nam voluptates vel repellendus dolor, ratione, omnis rerum? Minima laboriosam provident consectetur eius eum, quod iste exercitationem mollitia nemo recusandae non animi sit dicta, ex distinctio quia omnis sed deserunt harum? Sed rem, animi officia corporis debitis eaque sequi laborum totam eum repudiandae quisquam nulla veritatis obcaecati non possimus dolore odio temporibus dignissimos assumenda soluta beatae? Culpa ut laudantium, explicabo, earum quibusdam, illum omnis sapiente cumque et molestias reprehenderit. Vero fuga natus laboriosam reiciendis est obcaecati nam, voluptate sapiente, repudiandae, iure magni dolore ad ratione ipsa illum nesciunt animi recusandae blanditiis? Eveniet, quasi dolorum numquam, qui consectetur dicta sit quae similique labore aliquid quisquam, maxime voluptate et voluptatibus! Asperiores repellendus similique voluptates. Iusto sit debitis explicabo nemo ab asperiores minima perferendis corporis quam! Ducimus suscipit illum, cupiditate ipsa error voluptates repudiandae hic quaerat explicabo esse quisquam praesentium aliquam eius, recusandae dolore odio, reprehenderit corrupti cumque quo fugiat expedita libero sint facere? Cum omnis deserunt harum, rem possimus architecto neque quis ab labore ipsa enim consequuntur deleniti nemo consequatur voluptatum temporibus itaque veritatis saepe! Ut, placeat aliquam adipisci, sed, doloremque soluta enim eum tenetur aspernatur harum nesciunt repellendus culpa assumenda at! Eligendi at officiis molestias odio ad nulla ipsum fuga excepturi exercitationem a culpa nisi magnam corrupti corporis, ratione quisquam deserunt ipsam consectetur totam provident illo nobis iste cum voluptas. Repellendus enim ipsam corrupti dicta ad quod, molestias nostrum, exercitationem quasi velit itaque hic dolorum dolores rerum animi rem non repudiandae ea iure tempore dignissimos sed. Hic aperiam obcaecati laudantium facilis incidunt esse alias, officiis aut corporis quaerat. Ad rerum consectetur, enim placeat nemo voluptatum impedit vitae eum fugiat voluptatem ipsa, repudiandae totam ut. Sunt cupiditate eveniet eum! Odio laboriosam dignissimos nemo adipisci eveniet iste optio atque dicta repudiandae harum vero numquam perspiciatis velit at totam, minus voluptas. Recusandae aspernatur nostrum provident maiores? Obcaecati, reprehenderit itaque numquam quisquam tempore consectetur. A commodi dolore libero voluptatum ullam! Asperiores dignissimos velit officiis in, repellendus facilis maiores eaque voluptatem repellat perferendis nam sit aspernatur cupiditate deserunt, architecto, omnis amet vel. Possimus praesentium deserunt quam sunt iusto enim dolorum cumque eos architecto vitae adipisci atque optio, numquam omnis ratione officiis? Commodi totam fugit at vitae animi repellat pariatur. Ipsam ullam dolore illum, accusamus unde culpa earum vel.</div>
-  )
-}
+    <div className="h-screen snap-y snap-mandatory overflow-y-scroll">
+    <section className="relative h-screen snap-start">
+  {/* Background Image */}
+  <img
+    src="images/truck.jpg" // Replace with actual path
+    alt="Background"
+    className="absolute inset-0 w-full h-full object-cover z-0"
+  />
 
-export default LandingPage
+  {/* Overlay for darkening the background */}
+  <div className="absolute inset-0 bg-black/40 z-10" />
+
+  {/* Foreground Content */}
+  <div className="relative z-20 h-full flex items-center justify-center px-6 py-12">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* Left Content */}
+      <div>
+        <h1 className="text-5xl font-extrabold tracking-tight text-white mb-6">
+          Transforming India’s Freight with Smart, Scalable Tech
+        </h1>
+        <p className="text-white text-lg mb-8">
+          Built for fleet owners, shippers, and mid-sized logistics players across Tier-2 & Tier-3 cities
+        </p>
+        <div className="flex space-x-4">
+          <a href="#" className="px-6 py-3  transition-all duration-300 transform bg-lxj-accent text-white rounded-full font-semibold hover:bg-lxj-primary">
+            Get started for Free
+          </a>
+          <a href="#" className="px-6 py-3 border-2 transition-all duration-300 transform border-white rounded-full text-white font-semibold hover:bg-white hover:text-lxj-accent">
+            Explore Features →
+          </a>
+        </div>
+      </div>
+
+      {/* Right Image */}
+      <div className="relative">
+        <img
+          src="images/mobile-ui.png"
+          alt="Mobile UI"
+          className="w-full max-w-xs mx-auto drop-shadow-2xl rounded-xl"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<KeyFeatures />
+<Testimonials />
+<CaseStudyShowcase/>
+<News />
+<ContactCTASection/>
+  </div>  
+);
+}
