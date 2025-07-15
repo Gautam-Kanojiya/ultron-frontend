@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUpPage() {
-  const [userType, setUserType] = useState('Carrier');
+  const [userType, setUserType] = useState('Transporter');
   const [form, setForm] = useState({
     fullName: '',
     contact: '',
@@ -17,16 +17,64 @@ export default function SignUpPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Registration logic here
-    alert('Registration submitted!');
-    if (userType === 'Carrier') {
-      navigate('/transporter-dashboard');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const payload =
+    userType === 'Shipper'
+      ? {
+          name: form.fullName,
+          email: form.contact.includes('@') ? form.contact : undefined,
+          mobileNumber: !form.contact.includes('@') ? form.contact : undefined,
+          password: form.password,
+          designation: form.designation,
+          companyName: form.company,
+          gstNumber: form.gst,
+        }
+      : {
+          companyName: form.company,
+          password: form.password,
+          email: form.contact,
+          gstNumber: form.gst,
+          name: form.fullName,
+          ownerContactNumber: form.contact.includes('@') ? undefined : form.contact,
+          designation: form.designation,
+        };
+
+  const endpoint =
+    userType === 'Shipper'
+      ? 'https://bakcendrepo-1.onrender.com/api/shipper/signup'
+      : 'https://bakcendrepo-1.onrender.com/api/transporters/signup';
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert(data.message || 'Registered successfully!');
+      if (userType === 'Transporter') {
+        navigate('/transporter-dashboard');
+      } else {
+        navigate('/client-dashboard');
+      }
     } else {
-      navigate('/client-dashboard');
+      alert(data.message || 'Something went wrong');
+      console.error('Errors:', data.errors);
     }
-  };
+  } catch (error) {
+    console.log('1');
+    console.error('Request failed:', error);
+    alert('Network error occurred');
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-[#fffaff] flex flex-col md:flex-row items-center justify-center px-6 py-12">
@@ -46,10 +94,10 @@ export default function SignUpPage() {
         <div className="flex justify-center mb-4">
           <button
             type="button"
-            className={`px-6 py-2 rounded-l-md border border-[#3e92cc] font-semibold focus:outline-none transition-all duration-200 ${userType === 'Carrier' ? 'bg-[#3e92cc] text-white' : 'bg-white text-[#3e92cc]'}`}
-            onClick={() => setUserType('Carrier')}
+            className={`px-6 py-2 rounded-l-md border border-[#3e92cc] font-semibold focus:outline-none transition-all duration-200 ${userType === 'Transporter' ? 'bg-[#3e92cc] text-white' : 'bg-white text-[#3e92cc]'}`}
+            onClick={() => setUserType('Transporter')}
           >
-            Carrier
+            Transporter
           </button>
           <button
             type="button"
@@ -59,6 +107,7 @@ export default function SignUpPage() {
             Shipper
           </button>
         </div>
+
         <h2 className="text-2xl font-semibold text-center text-[#0a2463] mb-4">
           Register your account
         </h2>
