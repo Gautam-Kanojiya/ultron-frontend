@@ -19,6 +19,8 @@ import LandingPage from './pages/LandingPage';
 import AboutUs from './pages/aboutUs';
 import Careers from './pages/career';
 import SignUpPage from './pages/signup/sign_up';
+import SignupFormPage from './pages/signupOTP';
+
 
 function App() {
   return (
@@ -41,6 +43,7 @@ function App() {
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
+        <Route path="/signup-otp" element={<SignupFormPage />} />
       </Routes>
       <Footer/>
     </Router>
