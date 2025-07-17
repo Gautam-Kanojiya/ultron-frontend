@@ -288,6 +288,100 @@ export default function ShipperSignup() {
     }, 2000);
   };
 
+  // Render top fields first: Phone, Email, Password, Confirm Password, GST
+  const renderTopFields = () => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div>
+        <InputField
+          label="Phone Number"
+          name="pocContact"
+          type="tel"
+          value={formData.pocContact}
+          onChange={handleInputChange}
+          error={errors.pocContact}
+          placeholder="+91 XXXXXXXXXX"
+          required
+        />
+      </div>
+      <div>
+        <InputField
+          label="Email"
+          name="companyEmail"
+          type="email"
+          value={formData.companyEmail}
+          onChange={handleInputChange}
+          error={errors.companyEmail}
+          placeholder="company@example.com"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Create Password *
+        </label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+            errors.password ? 'border-red-300' : 'border-gray-300'
+          }`}
+          placeholder="Create password"
+        />
+        {errors.password && (
+          <p className="mt-1 text-sm text-red-600">{errors.password}</p>
+        )}
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Confirm Password *
+        </label>
+        <input
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleInputChange}
+          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+            errors.confirmPassword ? 'border-red-300' : 'border-gray-300'
+          }`}
+          placeholder="Confirm password"
+        />
+        {errors.confirmPassword && (
+          <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
+        )}
+      </div>
+      <div className="md:col-span-2">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          GST Number *
+        </label>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            name="companyGst"
+            value={formData.companyGst}
+            onChange={handleInputChange}
+            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+              errors.companyGst ? 'border-red-300' : 'border-gray-300'
+            }`}
+            placeholder="GST Number"
+          />
+          <button
+            type="button"
+            onClick={handleGstVerify}
+            disabled={gstVerifying || !formData.companyGst}
+            className={`px-3 py-2 rounded-lg font-semibold ${gstVerified ? 'bg-green-500 text-white' : 'bg-blue-500 text-white'} ${gstVerifying ? 'opacity-50' : ''}`}
+          >
+            {gstVerifying ? 'Verifying...' : gstVerified ? 'Verified' : 'Verify'}
+          </button>
+        </div>
+        {errors.companyGst && (
+          <p className="mt-1 text-sm text-red-600">{errors.companyGst}</p>
+        )}
+      </div>
+    </div>
+  );
+
   const renderFormSection = (sectionKey, section) => (
     <FormSection key={sectionKey} icon={section.icon} title={section.title}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -405,9 +499,29 @@ export default function ShipperSignup() {
 
           {/* Form Body */}
           <div className="p-8 space-y-8">
-            {/* Render sections dynamically */}
+            {renderTopFields()}
+            {/* Render sections dynamically, but skip pocContact, companyEmail, companyGst fields */}
             {Object.entries(formConfig).map(([sectionKey, section]) =>
-              renderFormSection(sectionKey, section)
+              <FormSection key={sectionKey} icon={section.icon} title={section.title}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {section.fields.filter(field => !['pocContact','companyEmail','companyGst'].includes(field.name)).map((field) => (
+                    <div key={field.name} className={field.gridCols || 'md:col-span-1'}>
+                      <InputField
+                        label={field.label}
+                        name={field.name}
+                        type={field.type}
+                        value={formData[field.name]}
+                        onChange={handleInputChange}
+                        error={errors[field.name]}
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        rows={field.rows}
+                        options={field.options}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </FormSection>
             )}
 
             {/* Submit Button */}
