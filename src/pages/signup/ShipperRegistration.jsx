@@ -84,9 +84,12 @@ export default function ShipperSignup() {
     pocDesignation: '',
     pocContact: '',
     ownerName: '',
-    ownerContact: ''
+    ownerContact: '',
+    password: '',
+    confirmPassword: ''
   });
-
+  const [gstVerified, setGstVerified] = useState(false);
+  const [gstVerifying, setGstVerifying] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -187,11 +190,19 @@ export default function ShipperSignup() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    let newValue = value;
+    if (name === 'companyGst') {
+      // Remove all spaces
+      let raw = value.replace(/\s+/g, '');
+      // Limit to 15 characters
+      if (raw.length > 15) raw = raw.slice(0, 15);
+      // Insert a space after every 4 characters
+      newValue = raw.replace(/(.{4})/g, '$1 ').trim();
+    }
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: newValue
     }));
-    
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
@@ -199,6 +210,16 @@ export default function ShipperSignup() {
         [name]: ''
       }));
     }
+  };
+
+  const handleGstVerify = async () => {
+    setGstVerifying(true);
+    // TODO: Replace with real GST verification API call
+    setTimeout(() => {
+      setGstVerified(true);
+      setGstVerifying(false);
+      alert('GST number verified!');
+    }, 1000);
   };
 
   const validateForm = () => {
@@ -230,6 +251,13 @@ export default function ShipperSignup() {
       newErrors.companyEmail = 'Please enter a valid email address';
     }
     
+    if (!formData.password) newErrors.password = 'Password is required';
+    if (!formData.confirmPassword) newErrors.confirmPassword = 'Confirm password is required';
+    if (formData.password && formData.confirmPassword && formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
+    if (!formData.companyGst) newErrors.companyGst = 'GST number is required';
+    else if (formData.companyGst.replace(/\s+/g, '').length !== 15) newErrors.companyGst = 'GST number must be 15 characters';
+    if (!gstVerified) newErrors.companyGst = 'GST number must be verified';
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -253,31 +281,202 @@ export default function ShipperSignup() {
         pocDesignation: '',
         pocContact: '',
         ownerName: '',
-        ownerContact: ''
+        ownerContact: '',
+        password: '',
+        confirmPassword: ''
       });
     }, 2000);
   };
 
+  // Render top fields first: Phone, Email, Password, Confirm Password, GST
+  const renderTopFields = () => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div>
+        <InputField
+          label="Phone Number"
+          name="pocContact"
+          type="tel"
+          value={formData.pocContact}
+          onChange={handleInputChange}
+          error={errors.pocContact}
+          placeholder="+91 XXXXXXXXXX"
+          required
+        />
+      </div>
+      <div>
+        <InputField
+          label="Email"
+          name="companyEmail"
+          type="email"
+          value={formData.companyEmail}
+          onChange={handleInputChange}
+          error={errors.companyEmail}
+          placeholder="company@example.com"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Create Password *
+        </label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+            errors.password ? 'border-red-300' : 'border-gray-300'
+          }`}
+          placeholder="Create password"
+        />
+        {errors.password && (
+          <p className="mt-1 text-sm text-red-600">{errors.password}</p>
+        )}
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Confirm Password *
+        </label>
+        <input
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleInputChange}
+          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+            errors.confirmPassword ? 'border-red-300' : 'border-gray-300'
+          }`}
+          placeholder="Confirm password"
+        />
+        {errors.confirmPassword && (
+          <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
+        )}
+      </div>
+      <div className="md:col-span-2">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          GST Number *
+        </label>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            name="companyGst"
+            value={formData.companyGst}
+            onChange={handleInputChange}
+            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+              errors.companyGst ? 'border-red-300' : 'border-gray-300'
+            }`}
+            placeholder="GST Number"
+          />
+          <button
+            type="button"
+            onClick={handleGstVerify}
+            disabled={gstVerifying || !formData.companyGst}
+            className={`px-3 py-2 rounded-lg font-semibold ${gstVerified ? 'bg-green-500 text-white' : 'bg-blue-500 text-white'} ${gstVerifying ? 'opacity-50' : ''}`}
+          >
+            {gstVerifying ? 'Verifying...' : gstVerified ? 'Verified' : 'Verify'}
+          </button>
+        </div>
+        {errors.companyGst && (
+          <p className="mt-1 text-sm text-red-600">{errors.companyGst}</p>
+        )}
+      </div>
+    </div>
+  );
+
   const renderFormSection = (sectionKey, section) => (
     <FormSection key={sectionKey} icon={section.icon} title={section.title}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {section.fields.map((field) => (
-          <div key={field.name} className={field.gridCols || 'md:col-span-1'}>
-            <InputField
-              label={field.label}
-              name={field.name}
-              type={field.type}
-              value={formData[field.name]}
-              onChange={handleInputChange}
-              error={errors[field.name]}
-              placeholder={field.placeholder}
-              required={field.required}
-              rows={field.rows}
-              options={field.options}
-            />
-          </div>
-        ))}
+        {section.fields.map((field) => {
+          if (field.name === 'companyGst') {
+            return (
+              <div key={field.name} className={field.gridCols || 'md:col-span-1'}>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {field.label} {field.required && <span className="text-red-500">*</span>}
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    name="companyGst"
+                    value={formData.companyGst}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                      errors.companyGst ? 'border-red-300' : 'border-gray-300'
+                    }`}
+                    placeholder={field.placeholder}
+                  />
+                  <button
+                    type="button"
+                    onClick={handleGstVerify}
+                    disabled={gstVerifying || !formData.companyGst}
+                    className={`px-3 py-2 rounded-lg font-semibold ${gstVerified ? 'bg-green-500 text-white' : 'bg-blue-500 text-white'} ${gstVerifying ? 'opacity-50' : ''}`}
+                  >
+                    {gstVerifying ? 'Verifying...' : gstVerified ? 'Verified' : 'Verify'}
+                  </button>
+                </div>
+                {errors.companyGst && (
+                  <p className="mt-1 text-sm text-red-600">{errors.companyGst}</p>
+                )}
+              </div>
+            );
+          }
+          return (
+            <div key={field.name} className={field.gridCols || 'md:col-span-1'}>
+              <InputField
+                label={field.label}
+                name={field.name}
+                type={field.type}
+                value={formData[field.name]}
+                onChange={handleInputChange}
+                error={errors[field.name]}
+                placeholder={field.placeholder}
+                required={field.required}
+                rows={field.rows}
+                options={field.options}
+              />
+            </div>
+          );
+        })}
       </div>
+      {/* Password fields at the end of the first section */}
+      {sectionKey === 'companyInfo' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Create Password *
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                errors.password ? 'border-red-300' : 'border-gray-300'
+              }`}
+              placeholder="Create password"
+            />
+            {errors.password && (
+              <p className="mt-1 text-sm text-red-600">{errors.password}</p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Confirm Password *
+            </label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleInputChange}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                errors.confirmPassword ? 'border-red-300' : 'border-gray-300'
+              }`}
+              placeholder="Confirm password"
+            />
+            {errors.confirmPassword && (
+              <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
+            )}
+          </div>
+        </div>
+      )}
     </FormSection>
   );
 
@@ -300,9 +499,29 @@ export default function ShipperSignup() {
 
           {/* Form Body */}
           <div className="p-8 space-y-8">
-            {/* Render sections dynamically */}
+            {renderTopFields()}
+            {/* Render sections dynamically, but skip pocContact, companyEmail, companyGst fields */}
             {Object.entries(formConfig).map(([sectionKey, section]) =>
-              renderFormSection(sectionKey, section)
+              <FormSection key={sectionKey} icon={section.icon} title={section.title}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {section.fields.filter(field => !['pocContact','companyEmail','companyGst'].includes(field.name)).map((field) => (
+                    <div key={field.name} className={field.gridCols || 'md:col-span-1'}>
+                      <InputField
+                        label={field.label}
+                        name={field.name}
+                        type={field.type}
+                        value={formData[field.name]}
+                        onChange={handleInputChange}
+                        error={errors[field.name]}
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        rows={field.rows}
+                        options={field.options}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </FormSection>
             )}
 
             {/* Submit Button */}
