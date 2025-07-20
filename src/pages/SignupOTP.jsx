@@ -3,6 +3,8 @@ import { Switch } from '../components/ui/Switch';
 import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
 import OtpInput from '../components/OtpInput';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function SignupFormPage() {
   const [role, setRole] = useState('shipper');
@@ -11,11 +13,22 @@ export default function SignupFormPage() {
   const [gst, setGst] = useState('');
   const [showOtp, setShowOtp] = useState(false);
   const [otpVerified, setOtpVerified] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your submission logic
-    console.log({ role, phone, email, gst });
+    // Add your backend submission logic
+    
+    if(!otpVerified) {
+      alert('Please verify your OTP before submitting');
+      return;
+    }
+
+    if(role=== 'shipper') {
+      navigate('/shipper-registration');
+    }else {
+      navigate('/carrier-registration');
+    }
   };
 
   const handleSendOtp = () => {
