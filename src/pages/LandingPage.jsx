@@ -30,10 +30,10 @@ export default function LandingPage() {
           Built for fleet owners, shippers, and mid-sized logistics players across Tier-2 & Tier-3 cities
         </p>
         <div className="flex space-x-4">
-          <a href="#" className="px-6 py-3  transition-all duration-300 transform bg-lxj-accent text-white rounded-full font-semibold hover:bg-lxj-primary">
+          <a href="/sign-up" className="px-6 py-3  transition-all duration-300 transform bg-lxj-accent text-white rounded-full font-semibold hover:bg-lxj-primary">
             Get started for Free
           </a>
-          <a href="#" className="px-6 py-3 border-2 transition-all duration-300 transform border-white rounded-full text-white font-semibold hover:bg-white hover:text-lxj-accent">
+          <a href="/about-us" className="px-6 py-3 border-2 transition-all duration-300 transform border-white rounded-full text-white font-semibold hover:bg-white hover:text-lxj-accent">
             Explore Features →
           </a>
         </div>
