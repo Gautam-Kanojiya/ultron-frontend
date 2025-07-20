@@ -106,11 +106,14 @@ export default function SignupFormPage() {
                     type="text"
                     placeholder="Enter GST number"
                     value={gst}
-                    onChange={(e) => setGst(e.target.value)}
+                    onChange={(e) => setGst(e.target.value.toUpperCase())}
                     pattern="^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$"
                     required
                     className="w-full"
                   />
+                  <small className="text-xs text-gray-500">
+                    Format: 11AAAAA1111A1Z1
+                  </small>
                 </div>
             
                 <Button

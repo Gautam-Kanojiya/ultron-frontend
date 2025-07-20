@@ -19,7 +19,7 @@ import LandingPage from './pages/LandingPage';
 import AboutUs from './pages/aboutUs';
 import Careers from './pages/career';
 import SignUpPage from './pages/signup/sign_up';
-import SignupFormPage from './pages/signupOTP';
+import SignupFormPage from './pages/SignupOTP';
 
 
 function App() {
