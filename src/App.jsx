@@ -19,8 +19,10 @@ import LandingPage from './pages/LandingPage';
 import AboutUs from './pages/aboutUs';
 import Careers from './pages/career';
 import SignUpPage from './pages/signup/sign_up';
-import SignupFormPage from './pages/signupOTP';
+import SignupFormPage from './pages/SignupOTP';
 
+import VehicleRegistration from './pages/Vehicleregistration';
+import DriverRegistration from './pages/Driverregistration';
 
 function App() {
   return (
@@ -30,8 +32,8 @@ function App() {
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/transporter-dashboard" element={<TransporterDashboard />} />
-        {/* <Route path="/carrier-registration" element={<CarrierRegistration />} /> */}
-        {/* <Route path="/shipper-registration" element={<ShipperRegistration />} /> */}
+        <Route path="/carrier-registration" element={<CarrierRegistration />} />
+        <Route path="/shipper-registration" element={<ShipperRegistration />} />
         <Route path="/shipments" element={<Shipments />} />
         <Route path="/consignment" element={<Consignment />} />
         <Route path="/about-us" element={<AboutUs />} />
@@ -44,6 +46,10 @@ function App() {
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
         <Route path="/signup-otp" element={<SignupFormPage />} />
+        <Route path="/vehicle-registration" element={<VehicleRegistration />} />
+        <Route path="/driver-registration" element={<DriverRegistration />} />
+        <Route path="/carrier-registration" element={<CarrierRegistration />} />
+        <Route path="/shipper-registration" element={<ShipperRegistration />} />
       </Routes>
       <Footer/>
     </Router>
