@@ -46,8 +46,8 @@ const tabDetails = {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 sm:p-10">
-      <div className="max-w-7xl mx-auto bg-white shadow-md rounded-xl p-6 sm:p-10">
+    <div className=" min-h-screen bg-gray-100 p-6 sm:p-10">
+      <div className="mt-15 max-w-7xl mx-auto bg-white shadow-md rounded-xl p-6 sm:p-10">
 
         {/* Header */}
         <div className="flex flex-col py-4 border-b sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
