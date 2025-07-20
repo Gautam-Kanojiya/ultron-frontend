@@ -32,8 +32,8 @@ function App() {
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/transporter-dashboard" element={<TransporterDashboard />} />
-        {/* <Route path="/carrier-registration" element={<CarrierRegistration />} /> */}
-        {/* <Route path="/shipper-registration" element={<ShipperRegistration />} /> */}
+        <Route path="/carrier-registration" element={<CarrierRegistration />} />
+        <Route path="/shipper-registration" element={<ShipperRegistration />} />
         <Route path="/shipments" element={<Shipments />} />
         <Route path="/consignment" element={<Consignment />} />
         <Route path="/about-us" element={<AboutUs />} />
