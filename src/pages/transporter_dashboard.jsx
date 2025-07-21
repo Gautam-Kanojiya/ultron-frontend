@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Add this import
-import CollapsibleSection from '../components/ui/CollapsibleSection';
+import CollapsibleSection from '../components/ui/collapsible_section';
 
 export default function TransporterDashboard() {
   const navigate = useNavigate(); // Add this line

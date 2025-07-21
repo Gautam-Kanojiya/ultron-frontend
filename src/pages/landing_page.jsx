@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import KeyFeatures from "./landingPageComponents/keyFeatures.jsx";
 import News from "./landingPageComponents/news.jsx";
-import CaseStudyShowcase from "./landingPageComponents/caseStudy";
-import Testimonials from "./landingPageComponents/testimonials";
-import ContactCTASection from "./landingPageComponents/contact";
+import CaseStudyShowcase from "./landingPageComponents/caseStudy.jsx";
+import Testimonials from "./landingPageComponents/testimonials.jsx";
+import ContactCTASection from "./landingPageComponents/contact.jsx";
 
 export default function LandingPage() {
   const navigate = useNavigate();

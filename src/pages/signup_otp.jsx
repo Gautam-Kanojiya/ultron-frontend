@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Switch } from '../components/ui/Switch';
 import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
-import OtpInput from '../components/OtpInput';
+import OtpInput from '../components/otp_input';
 import { useNavigate } from 'react-router-dom';
 
 

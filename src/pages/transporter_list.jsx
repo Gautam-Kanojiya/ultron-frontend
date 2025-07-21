@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Truck, Boxes } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
-import TransporterCard from '../components/cards/TransporterCard';
+import TransporterCard from '../components/cards/transporter_card';
 
 
 const AvailableTransporters = () => {
