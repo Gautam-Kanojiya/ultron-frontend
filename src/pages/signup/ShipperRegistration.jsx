@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Add this import
 import { Package, Building, Users, User, Phone, Mail, MapPin } from 'lucide-react';
 
 // Reusable Input Component
@@ -92,6 +93,7 @@ export default function ShipperSignup() {
   const [gstVerifying, setGstVerifying] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate(); // Add this line
 
   // Form configuration for scalability
   const formConfig = {
@@ -285,6 +287,7 @@ export default function ShipperSignup() {
         password: '',
         confirmPassword: ''
       });
+      navigate('/client-dashboard'); // Navigate to client dashboard
     }, 2000);
   };
 

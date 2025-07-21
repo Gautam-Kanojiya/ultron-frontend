@@ -18,7 +18,7 @@ import Navbar from './components/ui/navBar';
 import LandingPage from './pages/LandingPage';
 import AboutUs from './pages/aboutUs';
 import Careers from './pages/career';
-import SignUpPage from './pages/signup/sign_up';
+
 import SignupFormPage from './pages/SignupOTP';
 
 import VehicleRegistration from './pages/Vehicleregistration';
@@ -44,7 +44,7 @@ function App() {
         <Route path="/shipment-registration" element={<ShipmentRegistration />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/landing" element={<LandingPage />} />
-        <Route path="/sign-up" element={<SignUpPage />} />
+        
         <Route path="/signup-otp" element={<SignupFormPage />} />
         <Route path="/vehicle-registration" element={<VehicleRegistration />} />
         <Route path="/driver-registration" element={<DriverRegistration />} />

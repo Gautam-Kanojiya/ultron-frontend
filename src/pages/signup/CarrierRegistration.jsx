@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Truck, MapPin, Phone, Building, Users, Clock, Package } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../../images/logo.jpeg'; // Adjust the path as necessary
 
 export default function CarrierSignup() {
@@ -26,6 +27,7 @@ export default function CarrierSignup() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [gstVerified, setGstVerified] = useState(false);
   const [gstVerifying, setGstVerifying] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -64,37 +66,32 @@ export default function CarrierSignup() {
 
   const validateForm = () => {
     const newErrors = {};
-    
-    if (!formData.companyName) newErrors.companyName = 'Company name is required';
-    if (!formData.companyAddress) newErrors.companyAddress = 'Company address is required';
+
+    // Only these fields are compulsory
+    if (!formData.customerServiceNumber) newErrors.customerServiceNumber = 'Phone number is required';
     if (!formData.companyEmail) newErrors.companyEmail = 'Company email is required';
-    if (!formData.customerServiceNumber) newErrors.customerServiceNumber = 'Customer service number is required';
-    if (!formData.gstNumber) newErrors.gstNumber = 'GST number is required';
-    else if (formData.gstNumber.replace(/\s+/g, '').length !== 15) newErrors.gstNumber = 'GST number must be 15 characters';
-    if (!formData.ownerName) newErrors.ownerName = 'Owner name is required';
-    if (!formData.ownerContact) newErrors.ownerContact = 'Owner contact is required';
-    if (!formData.fleetSize) newErrors.fleetSize = 'Fleet size is required';
-    if (!formData.serviceType) newErrors.serviceType = 'Service type is required';
-    if (!formData.serviceMode) newErrors.serviceMode = 'Service mode is required';
     if (!formData.password) newErrors.password = 'Password is required';
     if (!formData.confirmPassword) newErrors.confirmPassword = 'Confirm password is required';
-    if (formData.password && formData.confirmPassword && formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
-    if (!gstVerified) newErrors.gstNumber = 'GST number must be verified';
-    
+    if (!formData.gstNumber) newErrors.gstNumber = 'GST number is required';
+    else if (formData.gstNumber.replace(/\s+/g, '').length !== 15) newErrors.gstNumber = 'GST number must be 15 characters';
+    if (!formData.companyName) newErrors.companyName = 'Company name is required';
+
+    if (formData.password && formData.confirmPassword && formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+    }
+
     if (formData.companyEmail && !/\S+@\S+\.\S+/.test(formData.companyEmail)) {
       newErrors.companyEmail = 'Please enter a valid email address';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async () => {
-    
     if (!validateForm()) return;
-    
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       alert('Carrier registration submitted successfully! We will review your application and get back to you within 24-48 hours.');
@@ -118,6 +115,7 @@ export default function CarrierSignup() {
         password: '',
         confirmPassword: ''
       });
+      navigate('/vehicle-registration'); // <-- Change navigation here
     }, 2000);
   };
 

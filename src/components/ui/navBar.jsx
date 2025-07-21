@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Menu, X, Search } from 'lucide-react';
-import { Link } from 'react-router-dom'; // Ensure you have react-router-dom installed
+import { Link, useNavigate } from 'react-router-dom'; // Update import
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate(); // Add this line
 
   return (
     <nav className="fixed top-2 left-2 right-2 z-50 bg-white/40 backdrop-blur-md border border-white/30 shadow-lg px-6 py-3 flex items-center justify-between rounded-none md:rounded-full">
@@ -15,7 +16,12 @@ export default function Navbar() {
         </span>
         <div className="hidden md:flex space-x-6  text-neutral-800 font-semibold">
           <a href="/" className="hover:text-[#8bb5f4] transition">Home</a>
-          <a href="/our-story" className="hover:text-[#8ec5ff] transition">Our Story</a>
+          <button
+            className="hover:text-[#8ec5ff] transition bg-transparent"
+            onClick={() => navigate('/about-us')}
+          >
+            Our Story
+          </button>
           <a href="/join-us" className="hover:text-[#9193ad] transition">Join Us</a>
         </div>
       </div>
@@ -29,7 +35,7 @@ export default function Navbar() {
         <a href="/sign-in">
           <button className="text-neutral-800 hover:text-[#d8315b] transition font-semibold">Sign In</button>
         </a>
-        <a href="/sign-up">
+        <a href="/signup-otp">
           <button className="bg-[#d8315b] hover:bg-[#b92549] text-white px-4 py-2 rounded-full text-sm font-semibold shadow">
             Get Started
           </button>
@@ -62,7 +68,12 @@ export default function Navbar() {
         {/* Centered Nav Links */}
         <div className="flex flex-col items-center justify-center space-y-2 text-neutral-900 font-medium">
           <a href="/" className="hover:text-[#8bb5f4] transition">Home</a>
-          <a href="/our-story" className="hover:text-[#8ec5ff] transition">Our Story</a>
+          <button
+            className="hover:text-[#8ec5ff] transition bg-transparent"
+            onClick={() => { setIsOpen(false); navigate('/about-us'); }}
+          >
+            Our Story
+          </button>
           <a href="/join-us" className="hover:text-[#9193ad] transition">Join Us</a>
         </div>
 
